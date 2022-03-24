@@ -42,7 +42,7 @@ public class BrowserYard extends PlinthInitializer {
     public WebDriver createBrowser(String browserName) {
         if (!browserName.equals("")) {
             getBrowser(browserName);
-            logger.info(browserName + " started successfully and session is: " + browser);
+            logger.info(browserName + " started successfully and " + browser);
         } else {
             logger.error("No Browser name is given");
         }
