@@ -12,7 +12,7 @@ import org.testng.annotations.*;
 public class TestRunner extends AbstractTestNGCucumberTests {
     private static final Logger logger = LogManager.getLogger(TestRunner.class);
 
-    @DataProvider(parallel = true)
+    @DataProvider(parallel = false)
     @Override
     public Object[][] scenarios() {
         return super.scenarios();

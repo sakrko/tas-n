@@ -10,14 +10,14 @@ import org.apache.logging.log4j.Logger;
 import plinth.BrowserYard;
 import plinth.PlinthInitializer;
 
-public class TestInitializeHooks extends PlinthInitializer {
+public class TestInitializeHooks {
     BrowserYard browserYard = new BrowserYard();
     private static final Logger logger = LogManager.getLogger(TestInitializeHooks.class);
 
     @Before
     public void beforeTest(Scenario scenario) {
         if (!scenario.getName().equals("")) {
-            setDriver(browserYard.createBrowser(PropHelper.getBrowserName()));
+            PlinthInitializer.setDriver(browserYard.createBrowser(PropHelper.getBrowserName()));
         }
     }
 
@@ -25,7 +25,7 @@ public class TestInitializeHooks extends PlinthInitializer {
     public void afterTest(Scenario scenario) {
         if (scenario.isFailed()) {
         }
-        if (getDriver() != null) {
+        if (PlinthInitializer.getDriver() != null) {
             browserYard.quitBrowser();
         }
     }
