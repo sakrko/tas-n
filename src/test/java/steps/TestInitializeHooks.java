@@ -16,7 +16,7 @@ public class TestInitializeHooks {
 
     @Before
     public void beforeTest(Scenario scenario) {
-        if (!scenario.getName().equals("")) {
+        if (!scenario.getName().toLowerCase().contains("api")) {
             PlinthInitializer.setDriver(browserYard.createBrowser(PropHelper.getBrowserName()));
         }
     }
