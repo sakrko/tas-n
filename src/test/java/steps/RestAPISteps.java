@@ -15,5 +15,6 @@ public class RestAPISteps {
     @Then("^the response status code is (.+)$")
     public void the_response_status_code_is(String code) {
         restAPI.checkResponseStatusCode(code);
+        TestInitializeHooks.writeToReport("Code is verfied");
     }
 }
