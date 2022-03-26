@@ -94,3 +94,6 @@ fabric.properties
 
 # log
 *.log
+
+# Reports
+/Reports
