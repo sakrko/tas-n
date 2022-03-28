@@ -2,12 +2,12 @@ Feature: DDG API
 
   Test feature for API requests
 
-  @REG
   Scenario: One Search api
-    Given the DDG API is queried with test
+    Given test data is loaded
+    When the DDG API is queried with test
     Then the response status code is 200
 
-  @REG
+
   Scenario Outline: More than one search api
     Given the DDG API is queried with <phrase>
     Then the response status code is <code>

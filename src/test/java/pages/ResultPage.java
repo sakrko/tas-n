@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utils.BrowserHelper;
 
 public class ResultPage {
 
@@ -19,6 +20,6 @@ public class ResultPage {
     WebElement txtSearchInput;
 
     public String getSearchInput() {
-        return txtSearchInput.getAttribute("value");
+        return BrowserHelper.getInputDataWithAttribute(txtSearchInput, "value");
     }
 }

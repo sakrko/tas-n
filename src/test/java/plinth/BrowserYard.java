@@ -7,7 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class BrowserYard {
+
+public class BrowserYard extends PlinthInitializer {
     WebDriver browser = null;
     private static final Logger logger = LogManager.getLogger(BrowserYard.class);
 

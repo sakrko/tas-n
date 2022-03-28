@@ -9,8 +9,8 @@ import pages.SearchPage;
 import plinth.PlinthInitializer;
 
 public class SearchSteps {
-    SearchPage searchPage = new SearchPage(PlinthInitializer.getDriver());
-    ResultPage resultPage = new ResultPage(PlinthInitializer.getDriver());
+    SearchPage searchPage = new SearchPage(PlinthInitializer.getBrowser());
+    ResultPage resultPage = new ResultPage(PlinthInitializer.getBrowser());
 
 
     @Given("^user is on ddg page$")

@@ -13,7 +13,19 @@ public class ConfigHelper {
     private static InputStream inputStream;
     private static final Logger logger = LogManager.getLogger(ConfigHelper.class);
 
-    public static String getPropValues(String key) {
+    private ConfigHelper() {
+    }
+
+    private static class InstanceHolder {
+        private static final ConfigHelper instance = new ConfigHelper();
+    }
+
+    public static ConfigHelper getInstance() {
+        logger.info("ConfigHelper Initiating an Object");
+        return InstanceHolder.instance;
+    }
+
+    public String getPropValues(String key) {
         try {
             Properties prop = new Properties();
             String propFileName = "config_" + PropHelper.getEnvironment() + ".properties";
@@ -41,4 +53,6 @@ public class ConfigHelper {
         }
         return result;
     }
+
+
 }

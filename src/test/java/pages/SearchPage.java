@@ -5,9 +5,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import plinth.PlinthInitializer;
+import utils.BrowserHelper;
 import utils.ConfigHelper;
 
-public class SearchPage {
+public class SearchPage extends PlinthInitializer {
     @FindBy(id = "search_form_input_homepage")
     private WebElement txtSearch;
 
@@ -20,10 +22,10 @@ public class SearchPage {
     }
 
     public void openUrl() {
-        browser.get(ConfigHelper.getPropValues("DDG_URL"));
+        browser.get(configHelper.getPropValues("DDG_URL"));
     }
 
     public void searchForPhrase(String phrase) {
-        txtSearch.sendKeys(phrase + Keys.ENTER);
+        BrowserHelper.sendKeys(txtSearch, phrase + Keys.ENTER);
     }
 }

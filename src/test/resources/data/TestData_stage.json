@@ -1,0 +1,21 @@
+[
+  {
+    "id": "TC01",
+    "fullName": "Test Name",
+    "email": "test1@test.com",
+    "currentAddress": "Test Current Address",
+    "permanentAddress": "Test Permanent Address"
+  },
+  {
+    "id": "TC02",
+    "fullName": "Test Name 2",
+    "email": "test2@test.com",
+    "currentAddress": "Test Current Address 2",
+    "permanentAddress": "Test Permanent Address 2"
+  },
+  {
+    "id": "API01",
+    "url": "/BookStore/v1/Books",
+    "method": "get"
+  }
+]

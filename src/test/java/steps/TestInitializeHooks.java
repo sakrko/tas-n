@@ -25,7 +25,7 @@ public class TestInitializeHooks {
     @Before
     public void beforeTest(Scenario scenario) {
         if (!scenario.getName().toLowerCase().contains("api")) {
-            PlinthInitializer.setDriver(browserYard.createBrowser(PropHelper.getBrowserName()));
+            PlinthInitializer.setBrowser(browserYard.createBrowser(PropHelper.getBrowserName()));
         }
         sc = scenario;
     }
@@ -35,14 +35,14 @@ public class TestInitializeHooks {
         if (scenario.isFailed() && !scenario.getName().toLowerCase().contains("api")) {
             addScreenshot();
         }
-        if (PlinthInitializer.getDriver() != null) {
+        if (PlinthInitializer.getBrowser() != null) {
             browserYard.quitBrowser();
         }
     }
 
-    public void addScreenshot() throws IOException {
+    public static void addScreenshot() throws IOException {
         String screenShotName = sc.getName().replaceAll(" ", "_");
-        File screenshot = ((TakesScreenshot) PlinthInitializer.getDriver()).getScreenshotAs(OutputType.FILE);
+        File screenshot = ((TakesScreenshot) PlinthInitializer.getBrowser()).getScreenshotAs(OutputType.FILE);
         byte[] fileContent = FileUtils.readFileToByteArray(screenshot);
         sc.attach(fileContent, "image/png", screenShotName);
     }
