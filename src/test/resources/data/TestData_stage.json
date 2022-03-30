@@ -15,7 +15,42 @@
   },
   {
     "id": "API01",
-    "url": "/BookStore/v1/Books",
-    "method": "get"
+    "url": "/api/users/2",
+    "method": "get",
+    "schemaName": "getUser.json",
+    "body": "",
+    "responseBody": "getUser.json",
+    "headers": "Content-Type=application/json,Accept=*/*",
+    "params": ""
+  },
+  {
+    "id": "API02",
+    "url": "/api/users",
+    "method": "post",
+    "schemaName": "createUser.json",
+    "body": "createUser.json",
+    "responseBody": "createUser.json",
+    "headers": "Content-Type=application/json,Accept=*/*",
+    "params": ""
+  },
+  {
+    "id": "API03",
+    "url": "/api/users/2",
+    "method": "put",
+    "schemaName": "updateUser.json",
+    "body": "updateUser.json",
+    "responseBody": "updateUser.json",
+    "headers": "Content-Type=application/json,Accept=*/*",
+    "params": ""
+  },
+  {
+    "id": "API04",
+    "url": "/api/users",
+    "method": "get",
+    "schemaName": "listUsers.json",
+    "body": "",
+    "responseBody": "listUsers.json",
+    "headers": "Content-Type=application/json,Accept=*/*",
+    "params": "page=2,"
   }
 ]

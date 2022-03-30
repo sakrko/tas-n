@@ -13,7 +13,7 @@ import java.time.Duration;
 
 public class BrowserHelper extends PlinthInitializer {
     private static WebDriverWait webDriverWait() {
-        return new WebDriverWait(getBrowser(), Duration.ofSeconds(Integer.parseInt(configHelper.getPropValues("ImplicitWait"))));
+        return new WebDriverWait(getBrowser(), Duration.ofSeconds(Integer.parseInt(configHelper.getConfigProp("ImplicitWait"))));
     }
 
     private static JavascriptExecutor jsExecutor() {

@@ -16,13 +16,14 @@ public class ElementsSteps extends PlinthInitializer {
     //    Given
 //    When
     @When("^the user fills the form with (.+) data$")
-    public void the_user_fills_the_form_with_data(String form) {
-        jsonDataHelper.loadTestDataScenario(form);
+    public void the_user_fills_the_form_with_data(String form) throws IOException {
+        setCM(jsonDataHelper.loadTestDataScenario(form.trim()));
         elementsPage.clickTextBox();
         elementsPage.fillTextField("fullName");
         elementsPage.fillTextField("email");
         elementsPage.fillTextField("currentAddress");
         elementsPage.fillTextField("permanentAddress");
+        Hooks.addScreenshot();
     }
 
     //    Then
@@ -31,7 +32,7 @@ public class ElementsSteps extends PlinthInitializer {
         String expectedSubmittedData = "Name:" + jsonDataHelper.getDataMap().get("fullName") + "\n" + "Email:" + jsonDataHelper.getDataMap().get("email") + "\n" + "Current Address :" + jsonDataHelper.getDataMap().get("currentAddress") + "\n" + "Permananet Address :" + jsonDataHelper.getDataMap().get("permanentAddress");
         String actualSubmittedData = elementsPage.getSubmittedData();
         Assert.assertEquals(actualSubmittedData, expectedSubmittedData);
-        TestInitializeHooks.addScreenshot();
+        Hooks.addScreenshot();
     }
 
     //    And

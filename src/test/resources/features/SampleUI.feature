@@ -1,3 +1,4 @@
+@REG
 Feature: Sample UI
   This feature covers few functionalities in demoqa.com page
 
@@ -27,3 +28,4 @@ Feature: Sample UI
     Examples:
       | form |
       | TC01 |
+      | TC02 |

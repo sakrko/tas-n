@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="test suite" data-provider-thread-count="1">
+<suite name="test suite" data-provider-thread-count="10">
     <test name="test1">
-        <parameter name="browserName" value="Headless Chromium"/>
+        <parameter name="browserName" value="Headless Chrome"/>
         <parameter name="environment" value="stage"/>
         <classes>
             <class name="runner.TestRunner"/>
