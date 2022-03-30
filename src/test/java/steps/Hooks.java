@@ -25,7 +25,7 @@ public class Hooks {
     public void beforeEachScenario(Scenario scenario) {
         long threadId = Thread.currentThread().getId();
         logger.info("Current Thread is running on: " + threadId);
-        PlinthInitializer.setS(scenario);
+        PlinthInitializer.setScenario(scenario);
         if (!scenario.getName().toLowerCase().contains("api")) {
             PlinthInitializer.setBrowser(browserYard.createBrowser(PropHelper.getBrowserName()));
         }
@@ -42,10 +42,10 @@ public class Hooks {
     }
 
     public static synchronized void addScreenshot() throws IOException {
-        String screenShotName = PlinthInitializer.getS().getName().replaceAll(" ", "_");
+        String screenShotName = PlinthInitializer.getScenario().getName().replaceAll(" ", "_");
         File screenshot = ((TakesScreenshot) PlinthInitializer.getBrowser()).getScreenshotAs(OutputType.FILE);
         byte[] fileContent = FileUtils.readFileToByteArray(screenshot);
-        PlinthInitializer.getS().attach(fileContent, "image/png", screenShotName);
+        PlinthInitializer.getScenario().attach(fileContent, "image/png", screenShotName);
     }
 
     public static synchronized void writeToReport(String msg) {

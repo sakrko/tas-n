@@ -24,21 +24,21 @@ public class PlinthInitializer {
 
     private static final ThreadLocal<ConcurrentMap<String, String>> threadLocalConMap = new ThreadLocal<>();
 
-    public static synchronized void setCM(ConcurrentMap<String, String> cm) {
+    public static synchronized void setConMap(ConcurrentMap<String, String> cm) {
         threadLocalConMap.set(cm);
     }
 
-    public static synchronized ConcurrentMap<String, String> getCM() {
+    public static synchronized ConcurrentMap<String, String> getConMap() {
         return threadLocalConMap.get();
     }
 
     private static final ThreadLocal<Scenario> threadLocalScenario = new ThreadLocal<>();
 
-    public static synchronized void setS(Scenario cm) {
+    public static synchronized void setScenario(Scenario cm) {
         threadLocalScenario.set(cm);
     }
 
-    public static synchronized Scenario getS() {
+    public static synchronized Scenario getScenario() {
         return threadLocalScenario.get();
     }
 }

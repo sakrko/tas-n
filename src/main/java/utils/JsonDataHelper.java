@@ -50,6 +50,6 @@ public enum JsonDataHelper {
     }
 
     public ConcurrentMap<String, String> getDataMap() {
-        return PlinthInitializer.getCM();
+        return PlinthInitializer.getConMap();
     }
 }

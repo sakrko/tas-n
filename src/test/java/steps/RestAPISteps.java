@@ -24,7 +24,7 @@ public class RestAPISteps extends PlinthInitializer {
     //    Given
     @Given("^test data is loaded from (.+)$")
     public void test_data_is_loaded_from(String testcase) {
-        setCM(jsonDataHelper.loadTestDataScenario(testcase.trim()));
+        setConMap(jsonDataHelper.loadTestDataScenario(testcase.trim()));
     }
 
     //    When

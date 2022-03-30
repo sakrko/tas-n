@@ -17,7 +17,7 @@ public class ElementsSteps extends PlinthInitializer {
 //    When
     @When("^the user fills the form with (.+) data$")
     public void the_user_fills_the_form_with_data(String form) throws IOException {
-        setCM(jsonDataHelper.loadTestDataScenario(form.trim()));
+        setConMap(jsonDataHelper.loadTestDataScenario(form.trim()));
         elementsPage.clickTextBox();
         elementsPage.fillTextField("fullName");
         elementsPage.fillTextField("email");
