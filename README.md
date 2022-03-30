@@ -77,6 +77,6 @@ Hope this suite eases your testing
 
 ## Copyright and license
 
-Code and documentation copyright 2011-2022 the authors. Code released under the [MIT License](https://reponame/blob/master/LICENSE).
+Code and documentation copyright 2011-2022 the authors. Code released under the [MIT License](https://github.com/namedsaikrishna/tas-n/master/LICENSE).
 
 Enjoy :metal:
