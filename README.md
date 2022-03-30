@@ -17,7 +17,6 @@ Test Automation Suite - TestNG
 - [What's included](#whats-included)
 - [Features](#features)
 - [Bugs and feature requests](#bugs-and-feature-requests)
-- [Creators](#creators)
 - [Thanks](#thanks)
 - [Copyright and license](#copyright-and-license)
 
