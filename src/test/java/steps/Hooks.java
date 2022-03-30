@@ -22,18 +22,17 @@ public class Hooks {
     private static final Logger logger = LogManager.getLogger(Hooks.class);
 
     @Before
-    public void beforeTest(Scenario scenario) {
+    public void beforeEachScenario(Scenario scenario) {
         long threadId = Thread.currentThread().getId();
         logger.info("Current Thread is running on: " + threadId);
         PlinthInitializer.setS(scenario);
         if (!scenario.getName().toLowerCase().contains("api")) {
             PlinthInitializer.setBrowser(browserYard.createBrowser(PropHelper.getBrowserName()));
         }
-//        sc = scenario;
     }
 
     @After
-    public void afterTest(Scenario scenario) throws IOException {
+    public void afterEachScenario(Scenario scenario) throws IOException {
         if (scenario.isFailed() && !scenario.getName().toLowerCase().contains("api")) {
             addScreenshot();
         }
@@ -49,7 +48,7 @@ public class Hooks {
         PlinthInitializer.getS().attach(fileContent, "image/png", screenShotName);
     }
 
-    public static void writeToReport(String msg) {
+    public static synchronized void writeToReport(String msg) {
         ExtentCucumberAdapter.addTestStepLog(msg);
     }
 }

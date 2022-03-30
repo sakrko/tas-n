@@ -4,8 +4,19 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.restassured.module.jsv.JsonSchemaValidator;
+import org.json.JSONException;
+import org.skyscreamer.jsonassert.Customization;
+import org.skyscreamer.jsonassert.JSONAssert;
+import org.skyscreamer.jsonassert.JSONCompareMode;
+import org.skyscreamer.jsonassert.comparator.CustomComparator;
+import org.skyscreamer.jsonassert.comparator.JSONComparator;
+import org.testng.Assert;
 import plinth.PlinthInitializer;
+import utils.FileHelper;
 import utils.RestAPI;
+
+import java.io.File;
 
 public class RestAPISteps extends PlinthInitializer {
     RestAPI restAPI = new RestAPI();
@@ -30,18 +41,22 @@ public class RestAPISteps extends PlinthInitializer {
     //    Then
     @Then("^status code is (.+)$")
     public void status_code_is(String statusCode) {
-        restAPI.checkResponseStatusCode(statusCode);
+        Assert.assertEquals(restAPI.getStatusCode(), Integer.parseInt(statusCode));
     }
 
     //    And
     @And("^validate schema$")
     public void validate_schema() {
-        restAPI.validateSchema(jsonDataHelper.getDataMap().get("schemaName"));
+        String schemaFileName = jsonDataHelper.getDataMap().get("schemaName");
+        File fileName = new File(FileHelper.getScenarioPath(schemaFileName));
+        restAPI.getResponse().then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(fileName));
     }
 
     @And("^validate response body$")
-    public void validate_response_body() {
+    public void validate_response_body() throws JSONException {
         String responseBody = jsonDataHelper.getDataMap().get("responseBody");
-        restAPI.validateResponseBody(responseBody);
+        String expectedResponseBody = FileHelper.getFileToString("responseBody", responseBody);
+        JSONComparator customisedJobComparator = new CustomComparator(JSONCompareMode.LENIENT, new Customization("id", (o1, o2) -> true), new Customization("createdAt", (o1, o2) -> true), new Customization("updatedAt", (o1, o2) -> true));
+        JSONAssert.assertEquals(expectedResponseBody, restAPI.getResponseAsString(), customisedJobComparator);
     }
 }

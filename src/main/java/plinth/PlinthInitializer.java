@@ -22,23 +22,23 @@ public class PlinthInitializer {
 
     public static JsonDataHelper jsonDataHelper = JsonDataHelper.INSTANCE;
 
-    private static final ThreadLocal<ConcurrentMap<String, String>> tlCM = new ThreadLocal<>();
+    private static final ThreadLocal<ConcurrentMap<String, String>> threadLocalConMap = new ThreadLocal<>();
 
     public static synchronized void setCM(ConcurrentMap<String, String> cm) {
-        tlCM.set(cm);
+        threadLocalConMap.set(cm);
     }
 
     public static synchronized ConcurrentMap<String, String> getCM() {
-        return tlCM.get();
+        return threadLocalConMap.get();
     }
 
-    private static final ThreadLocal<Scenario> tlS = new ThreadLocal<>();
+    private static final ThreadLocal<Scenario> threadLocalScenario = new ThreadLocal<>();
 
     public static synchronized void setS(Scenario cm) {
-        tlS.set(cm);
+        threadLocalScenario.set(cm);
     }
 
     public static synchronized Scenario getS() {
-        return tlS.get();
+        return threadLocalScenario.get();
     }
 }

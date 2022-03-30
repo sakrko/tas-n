@@ -1,19 +1,10 @@
 package utils;
 
 import io.restassured.RestAssured;
-import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import org.json.JSONException;
-import org.skyscreamer.jsonassert.Customization;
-import org.skyscreamer.jsonassert.JSONAssert;
-import org.skyscreamer.jsonassert.JSONCompareMode;
-import org.skyscreamer.jsonassert.comparator.CustomComparator;
-import org.skyscreamer.jsonassert.comparator.JSONComparator;
-import org.testng.Assert;
 import plinth.PlinthInitializer;
 
-import java.io.File;
 import java.util.HashMap;
 
 public class RestAPI extends PlinthInitializer {
@@ -48,24 +39,16 @@ public class RestAPI extends PlinthInitializer {
         }
     }
 
-    public void checkResponseStatusCode(String code) {
-        Assert.assertEquals(response.getStatusCode(), Integer.parseInt(code));
+    public int getStatusCode() {
+        return response.getStatusCode();
     }
 
-    public void validateSchema(String schemaFileName) {
-        response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(new File(FileHelper.getScenarioPath(schemaFileName))));
+    public Response getResponse() {
+        return response;
     }
 
-    public void validateResponseBody(String responseBody) {
-        String expectedResponseBody;
-        String actualResponseBody = response.getBody().asString();
-        JSONComparator customisedJobComparator = new CustomComparator(JSONCompareMode.LENIENT, new Customization("id", (o1, o2) -> true), new Customization("createdAt", (o1, o2) -> true), new Customization("updatedAt", (o1, o2) -> true));
-        expectedResponseBody = FileHelper.getFileToString("responseBody", responseBody);
-        try {
-            JSONAssert.assertEquals(expectedResponseBody, actualResponseBody, customisedJobComparator);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+    public String getResponseAsString() {
+        return response.getBody().asString();
     }
 
     public HashMap<String, String> getKeyValuePairsFromString(String str) {

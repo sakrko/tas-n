@@ -22,8 +22,6 @@ public class HomeSteps extends PlinthInitializer {
     @Given("^the \"([^\"]*)\" page is displayed$")
     public void the_something_page_is_displayed(String block) {
         homePage.clickBlock(block);
-        long threadId = Thread.currentThread().getId();
-        logger.info("Thread # " + threadId + " is doing this task");
     }
 
 //    When

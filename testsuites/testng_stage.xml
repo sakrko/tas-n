@@ -5,7 +5,7 @@
         <parameter name="browserName" value="Headless Chrome"/>
         <parameter name="environment" value="stage"/>
         <classes>
-            <class name="runner.TestRunner"/>
+            <class name="runners.TestRunner"/>
         </classes>
     </test>
 </suite>

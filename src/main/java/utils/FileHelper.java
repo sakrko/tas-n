@@ -1,6 +1,8 @@
 package utils;
 
-import org.testng.Assert;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -9,6 +11,8 @@ import java.nio.file.Path;
 
 
 public class FileHelper {
+    private static final Logger logger = LogManager.getLogger(FileHelper.class);
+
     public static String getFileToString(String dir, String fileName) {
         String str = null;
         String basePath = null;
@@ -20,7 +24,7 @@ public class FileHelper {
                 basePath = "/src/test/resources/data/responseBody/";
                 break;
             default:
-                Assert.fail("No such base path is found");
+                logger.error("No such base path is found");
                 break;
         }
         try {
