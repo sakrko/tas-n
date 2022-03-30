@@ -71,11 +71,6 @@ Following features are implemented:
 
 Any problem or idea is not addressed yet, [please open a new issue](https://github.com/namedsaikrishna/tas-n/issues/new).
 
-## Creators
-
-**Sai Krishna**
-
-- <https://github.com/namedsaikrishna>
 
 ## Thanks
 
