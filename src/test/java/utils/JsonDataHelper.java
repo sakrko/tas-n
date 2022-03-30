@@ -16,7 +16,6 @@ import java.util.concurrent.ConcurrentMap;
 public enum JsonDataHelper {
     INSTANCE;
     private static final Logger logger = LogManager.getLogger(JsonDataHelper.class);
-    private ConcurrentMap<String, String> testCase = null;
     private List<Map<String, String>> testCases = null;
 
 
@@ -34,19 +33,20 @@ public enum JsonDataHelper {
     }
 
     public ConcurrentMap<String, String> loadTestDataScenario(String scenario) {
-        Map<String, String> obj1 = null;
-        loadTestData();
-
+        if (testCases == null) {
+            loadTestData();
+        } else {
+            logger.info("Test Data is in memory");
+        }
+        Map<String, String> testData = null;
         for (Map<String, String> obj : testCases) {
             if (obj.get("id").equalsIgnoreCase(scenario)) {
-                obj1 = obj;
+                testData = obj;
                 logger.info("Data from Json: " + obj);
             }
         }
-        testCase =new ConcurrentHashMap<String, String>();
-        assert obj1 != null;
-        testCase.putAll(obj1);
-        return testCase;
+        assert testData != null;
+        return new ConcurrentHashMap<>(testData);
     }
 
     public ConcurrentMap<String, String> getDataMap() {

@@ -9,7 +9,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import plinth.PlinthInitializer;
 import utils.BrowserHelper;
-import utils.ConfigHelperOld;
 
 public class ElementsPage extends PlinthInitializer {
     //    Locators
@@ -37,7 +36,7 @@ public class ElementsPage extends PlinthInitializer {
 
     //    Initializers
     WebDriver browser;
-    private static final Logger logger = LogManager.getLogger(ConfigHelperOld.class);
+    private static final Logger logger = LogManager.getLogger(ElementsPage.class);
 
 
     public ElementsPage(WebDriver browser) {

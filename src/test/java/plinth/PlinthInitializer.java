@@ -1,7 +1,6 @@
 package plinth;
 
 import io.cucumber.java.Scenario;
-import io.restassured.response.Response;
 import org.openqa.selenium.WebDriver;
 import utils.ConfigHelper;
 import utils.JsonDataHelper;

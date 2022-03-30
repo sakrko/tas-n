@@ -6,20 +6,18 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import utils.JsonDataHelper;
-import utils.PropHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import plinth.BrowserYard;
 import plinth.PlinthInitializer;
+import utils.PropHelper;
 
 import java.io.File;
 import java.io.IOException;
 
 public class Hooks {
-    public static Scenario sc;
     BrowserYard browserYard = new BrowserYard();
     private static final Logger logger = LogManager.getLogger(Hooks.class);
 

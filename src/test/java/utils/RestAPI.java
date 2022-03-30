@@ -3,10 +3,7 @@ package utils;
 import io.restassured.RestAssured;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
-import io.restassured.response.ResponseBody;
 import io.restassured.specification.RequestSpecification;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.json.JSONException;
 import org.skyscreamer.jsonassert.Customization;
 import org.skyscreamer.jsonassert.JSONAssert;
@@ -15,7 +12,6 @@ import org.skyscreamer.jsonassert.comparator.CustomComparator;
 import org.skyscreamer.jsonassert.comparator.JSONComparator;
 import org.testng.Assert;
 import plinth.PlinthInitializer;
-import steps.Hooks;
 
 import java.io.File;
 import java.util.HashMap;
@@ -24,7 +20,6 @@ public class RestAPI extends PlinthInitializer {
     private Response response = null;
 
     public void request(String method, String url, String body, String headers, String params) {
-//        RestAssured.baseURI = url;
         RequestSpecification httpRequest = RestAssured.given();
         httpRequest.headers(getKeyValuePairsFromString(headers));
 
@@ -62,7 +57,7 @@ public class RestAPI extends PlinthInitializer {
     }
 
     public void validateResponseBody(String responseBody) {
-        String expectedResponseBody = null;
+        String expectedResponseBody;
         String actualResponseBody = response.getBody().asString();
         JSONComparator customisedJobComparator = new CustomComparator(JSONCompareMode.LENIENT, new Customization("id", (o1, o2) -> true), new Customization("createdAt", (o1, o2) -> true), new Customization("updatedAt", (o1, o2) -> true));
         expectedResponseBody = FileHelper.getFileToString("responseBody", responseBody);

@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 import plinth.PlinthInitializer;
 import utils.BrowserHelper;
 
@@ -32,13 +31,13 @@ public class BookStorePage extends PlinthInitializer {
     }
 
     public String getFirstBookNameFromResultList() {
-        String resultBook = null;
+        String resultBook;
         resultBook = BrowserHelper.getNonInputDataWithAttribute(lnkFirstResultBookName);
         return resultBook;
     }
 
     public int getResultListCount() {
-        int resultCount = 0;
+        int resultCount;
         resultCount = browser.findElements(By.xpath("(//*[@class='rt-tr-group'])[1]//child::a")).size();
         return resultCount;
     }
