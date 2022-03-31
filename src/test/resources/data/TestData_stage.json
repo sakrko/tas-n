@@ -1,0 +1,56 @@
+[
+  {
+    "id": "TC01",
+    "fullName": "Test Name",
+    "email": "test1@test.com",
+    "currentAddress": "Test Current Address",
+    "permanentAddress": "Test Permanent Address"
+  },
+  {
+    "id": "TC02",
+    "fullName": "Test Name 2",
+    "email": "test2@test.com",
+    "currentAddress": "Test Current Address 2",
+    "permanentAddress": "Test Permanent Address 2"
+  },
+  {
+    "id": "API01",
+    "url": "/api/users/2",
+    "method": "get",
+    "schemaName": "getUser.json",
+    "body": "",
+    "responseBody": "getUser.json",
+    "headers": "Content-Type=application/json,Accept=*/*",
+    "params": ""
+  },
+  {
+    "id": "API02",
+    "url": "/api/users",
+    "method": "post",
+    "schemaName": "createUser.json",
+    "body": "createUser.json",
+    "responseBody": "createUser.json",
+    "headers": "Content-Type=application/json,Accept=*/*",
+    "params": ""
+  },
+  {
+    "id": "API03",
+    "url": "/api/users/2",
+    "method": "put",
+    "schemaName": "updateUser.json",
+    "body": "updateUser.json",
+    "responseBody": "updateUser.json",
+    "headers": "Content-Type=application/json,Accept=*/*",
+    "params": ""
+  },
+  {
+    "id": "API04",
+    "url": "/api/users",
+    "method": "get",
+    "schemaName": "listUsers.json",
+    "body": "",
+    "responseBody": "listUsers.json",
+    "headers": "Content-Type=application/json,Accept=*/*",
+    "params": "page=2,"
+  }
+]
