@@ -19,6 +19,7 @@ Feature: Sample UI
     When the user searches for The Great Gatsby
     Then no such book is found in result list
 
+  @TEST
   Scenario Outline: Submit form
     Given the "elements" page is displayed
     When the user fills the form with <form> data
