@@ -24,19 +24,19 @@
 <!--        <testViewChartLocation>bottom</testViewChartLocation>-->
 
         <!-- custom javascript -->
-        <scripts>
-            <![CDATA[
-                $(document).ready(function() {
+<!--        <scripts>-->
+<!--            <![CDATA[-->
+<!--                $(document).ready(function() {-->
 
-                });
-            ]]>
-        </scripts>
+<!--                });-->
+<!--            ]]>-->
+<!--        </scripts>-->
 
-        <!-- custom styles -->
-        <styles>
-            <![CDATA[
+<!--        &lt;!&ndash; custom styles &ndash;&gt;-->
+<!--        <styles>-->
+<!--            <![CDATA[-->
 
-            ]]>
-        </styles>
+<!--            ]]>-->
+<!--        </styles>-->
     </configuration>
 </extentreports>
