@@ -14,7 +14,7 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-@CucumberOptions(features = "src/test/resources/features", glue = {"steps"}, tags = "@TEST", plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}, monochrome = true, publish = true)
+@CucumberOptions(features = "src/test/resources/features", glue = {"steps"}, tags = "@REG", plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}, monochrome = true, publish = true)
 public class TestRunner extends AbstractTestNGCucumberTests {
     private static final Logger logger = LogManager.getLogger(TestRunner.class);
 
